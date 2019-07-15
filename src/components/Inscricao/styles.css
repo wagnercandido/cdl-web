@@ -1,0 +1,62 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    height: 100%;
+    padding-right: -20px;
+}
+
+.form-control {
+    display: none;
+}
+
+.form-label {
+    margin-top: -20px !important;
+    margin-bottom: -20px;
+}
+
+.select-wrapper {
+    margin-top: -22px;
+}
+
+.select-wrapper input.select-dropdown {
+    text-align: center;
+}
+
+.col {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.row {
+    margin-bottom: 0 !important;
+}
+
+.lineButton {
+    text-align: right;
+}
+
+.btn {
+    border-radius: 0px;
+    padding: 10px 30px 30px 30px;
+}
+
+.btn:hover {
+    color: #FFF;
+}
+
+.alerts {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.colLateral {
+    margin-top: -20px;
+    height: 100vh !important;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background: #EEE
+}
