@@ -21,6 +21,7 @@ export default class services extends Component {
                 style={{
                     position: 'relative',
                     minHeight: '80px',
+                    'font-size': '14px'
                 }}
             >
                 <Toast
@@ -32,7 +33,7 @@ export default class services extends Component {
                         color: '#FFF',
                     }}
                 >
-                    <Toast.Body><strong className="mr-auto">Bootstrap</strong></Toast.Body>
+                    <Toast.Body><strong className="mr-auto">{this.state.mensagem}</strong></Toast.Body>
                 </Toast>
             </div>
         );

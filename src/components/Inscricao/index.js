@@ -8,6 +8,8 @@ import './styles.css';
 import api from '../../services/api';
 import Toast from '../../services/toast';
 
+import Logo from '../../assets/logo-cdl.png';
+
 export default class Inscricao extends Component {
 
     state = {
@@ -99,13 +101,23 @@ export default class Inscricao extends Component {
         return (
             <div className="container">
                 <div style={{ 'display': this.state.show ? '' : 'none' }}>
-                    <Toast tipo="success" mensagem="Inscrição Realizada!" />
+                    <Toast tipo="success" mensagem="Inscrição Realizada com Sucesso!" />
                 </div>
                 <div className="row">
-                    <h5>Inscrição CDL</h5>
-                </div>
-                <div className="row">
+                    <div className="col-lg-4 colLateral d-flex justify-content-center align-items-center">
+                        <img src={Logo} />
+                        <h4>Curso de Dinâmica para Líderes 2019</h4>
+                        <h6>Faça sua inscrição e aguarde nosso contato.
+                            <br />
+                            Boa sorte!</h6>
+                    </div>
                     <div className="col-lg-8 col-12">
+                        <div className="row">
+                            <h5>Seja bem vindo!</h5>
+                        </div>
+                        <div className="row">
+                            <h6>Realize sua inscrição, preenchendo o formulário abaixo</h6>
+                        </div>
                         <label>Dados do Cursista</label>
                         <div className="row">
                             <div className="col-md-9">
@@ -195,13 +207,7 @@ export default class Inscricao extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4 colLateral d-flex justify-content-center align-items-center">
 
-                        <h4>Curso de Dinâmica para Líderes 2019</h4>
-                        <h6>Faça sua inscrição e aguarde nosso contato.
-                            <br />
-                            Boa sorte!</h6>
-                    </div>
                 </div>
             </div>
         );

@@ -1,8 +1,7 @@
 .container {
     margin-top: 20px;
-    margin-bottom: 40px;
-    height: 100%;
     padding-right: -20px;
+    padding-bottom: 20px;
 }
 
 .form-control {
@@ -58,5 +57,9 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    background: #EEE
+}
+
+img {
+    width: 150px;
+    margin-bottom: 20px
 }

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
-import Inscricao from './components/Inscricao';
+import Routes from './routes';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
     return (
-      <Inscricao />
+      <BrowserRouter>
+        <Routes />
+        <Footer />
+      </BrowserRouter>
     );
   }
 }
