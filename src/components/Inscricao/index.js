@@ -110,6 +110,8 @@ export default class Inscricao extends Component {
                         <h6>Faça sua inscrição e aguarde nosso contato.
                             <br />
                             Boa sorte!</h6>
+                            <label for="nome" className="isMobile"><i class="material-icons md-icons">keyboard_arrow_down</i></label>
+
                     </div>
                     <div className="col-lg-8 col-12">
                         <div className="row">
@@ -122,7 +124,7 @@ export default class Inscricao extends Component {
                         <div className="row">
                             <div className="col-md-9">
                                 <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
-                                <TextInput label="Nome completo *"
+                                <TextInput label="Nome completo *" id="nome"
                                     name="nome" onChange={this.handleChange} value={this.state.nome}
                                 />
                             </div>

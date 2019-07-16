@@ -63,3 +63,22 @@ img {
     width: 150px;
     margin-bottom: 20px
 }
+
+label {
+    margin-bottom: .5rem !important;
+}
+
+.md-icons {
+    font-size: 5rem;
+    border: 1px solid #eee;
+    /* background: #eee; */
+    border-radius: 50px;
+    box-shadow: 0px 1px 10px #999;
+    display: none;
+}
+
+@media only screen and (max-width: 991px) {
+    .md-icons {
+        display: inline;
+    }
+}

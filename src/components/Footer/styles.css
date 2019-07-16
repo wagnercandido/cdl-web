@@ -16,8 +16,16 @@
 
 a {
     cursor: pointer;
+    color: #FFF;
 }
 
-label {
-    margin: 0;
+a:hover {
+    color: #FFF;
+    opacity: 0.5;
+    text-decoration: none;
 }
+
+.labelFooter {
+    margin: 0 !important;
+}
+
