@@ -29,3 +29,12 @@ a:hover {
     margin: 0 !important;
 }
 
+.btn {
+    width: 300px;
+    border-radius: 0px;
+    padding: 10px 30px 30px 30px;
+}
+
+.btn:hover {
+    color: #FFF;
+}

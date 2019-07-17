@@ -6,9 +6,10 @@ import { Form, Spinner } from 'react-bootstrap';
 
 import './styles.css';
 import api from '../../services/api';
-import Toast from '../../services/toast';
 
 import Logo from '../../assets/logo-cdl.png';
+
+import Footer from '../Footer';
 
 export default class Inscricao extends Component {
 
@@ -84,10 +85,7 @@ export default class Inscricao extends Component {
 
             if (inscricao.data) {
                 this.setState({ loadding: false });
-                this.setState({ show: true });
-                setTimeout(() => {
-                    this.setState({ show: false });
-                }, 3000);
+                this.props.history.push('/confirmacao');
             } else {
                 this.setState({ loadding: false });
                 console.log('Erro', inscricao);
@@ -99,118 +97,122 @@ export default class Inscricao extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div style={{ 'display': this.state.show ? '' : 'none' }}>
-                    <Toast tipo="success" mensagem="Inscrição Realizada com Sucesso!" />
-                </div>
-                <div className="row">
-                    <div className="col-lg-4 colLateral d-flex justify-content-center align-items-center">
-                        <img src={Logo} />
-                        <h4>Curso de Dinâmica para Líderes 2019</h4>
-                        <h6>Faça sua inscrição e aguarde nosso contato.
+            <div>
+
+                <div className="container">
+                    <div style={{ 'display': this.state.show ? '' : 'none' }}>
+                        {/* <Toast tipo="success" mensagem="Inscrição Realizada com Sucesso!" /> */}
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-4 colLateral d-flex justify-content-center align-items-center">
+                            <img src={Logo} />
+                            <h4>Curso de Dinâmica para Líderes 2019</h4>
+                            <h6>Faça sua inscrição e aguarde nosso contato.
                             <br />
-                            Boa sorte!</h6>
+                                Boa sorte!</h6>
                             <label for="nome" className="isMobile"><i class="material-icons md-icons">keyboard_arrow_down</i></label>
 
-                    </div>
-                    <div className="col-lg-8 col-12">
-                        <div className="row">
-                            <h5>Seja bem vindo!</h5>
                         </div>
-                        <div className="row">
-                            <h6>Realize sua inscrição, preenchendo o formulário abaixo</h6>
+                        <div className="col-lg-8 col-12">
+                            <div className="row">
+                                <h5>Seja bem vindo!</h5>
+                            </div>
+                            <div className="row">
+                                <h6>Realize sua inscrição, preenchendo o formulário abaixo</h6>
+                            </div>
+                            <label>Dados do Cursista</label>
+                            <div className="row">
+                                <div className="col-md-9">
+                                    <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
+                                    <TextInput label="Nome completo *" id="nome"
+                                        name="nome" onChange={this.handleChange} value={this.state.nome}
+                                    />
+                                </div>
+                                <div className="col-md-3">
+                                    <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
+                                    <TextInput label="Idade"
+                                        name="idade" onChange={this.handleChange} value={this.state.idade}
+                                    />
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
+                                    <TextInput label="Telefone"
+                                        name="telefone" onChange={this.handleChange} value={this.state.telefone}
+                                    />
+                                </div>
+                            </div>
+                            <label>Endereço</label>
+                            <div className="row">
+                                <div className="col-md-9">
+                                    <TextInput label="Rua"
+                                        name="rua" onChange={this.handleChange} value={this.state.rua}
+                                    />
+                                </div>
+                                <div className="col-md-3">
+                                    <TextInput label="Nº"
+                                        name="numero" onChange={this.handleChange} value={this.state.numero}
+                                    />
+                                </div>
+                                <div className="col-md-4">
+                                    <TextInput label="Bairro"
+                                        name="bairro" onChange={this.handleChange} value={this.state.bairro}
+                                    />
+                                </div>
+                                <div className="col-md-5">
+                                    <TextInput label="Cidade"
+                                        name="cidade" onChange={this.handleChange} value={this.state.cidade}
+                                    />
+                                </div>
+                                <div className="col-md-3">
+                                    <Form.Label>Estado</Form.Label>
+                                    <Form.Control as="select" onChange={this.returnestado}>
+                                        <option value=""></option>
+                                        {this.estados && this.estados.map(estado => (
+                                            <option key={estado.value} value={estado.value}>{estado.value}</option>
+                                        ))}
+                                    </Form.Control>
+                                </div>
+                            </div>
+                            <label>Restrições do Cursista</label>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <Textarea placeholder="Restrições com comida, alergias, etc" data-length={120}
+                                        name="restricao" onChange={this.handleChange} value={this.state.restricao}
+                                    />
+                                </div>
+                            </div>
+                            <label>Questionário Rápido</label>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <TextInput label="Comunidade que participa"
+                                        name="comunidade" onChange={this.handleChange} value={this.state.comunidade}
+                                    />
+                                </div>
+                                <div className="col-md-12">
+                                    <TextInput label="Função que exerce na comunidade"
+                                        name="funcao" onChange={this.handleChange} value={this.state.funcao}
+                                    />
+                                </div>
+                                <div className="col-md-12">
+                                    <TextInput label="Porque você quer participar do CDL 2019?"
+                                        name="motivo" onChange={this.handleChange} value={this.state.motivo}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-12 text-right" style={{ 'display': !this.state.loadding ? '' : 'none' }}>
+                                    <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none', 'margin-bottom': '10px' }}><small>* Verifique os campos obrigatórios</small></div>
+                                    <Button onClick={this.realizarInscricao} waves="light">REALIZAR INSCRIÇÃO</Button>
+                                </div>
+                                <div className="col-lg-12 text-right" style={{ 'display': this.state.loadding ? '' : 'none' }}>
+                                    <Spinner animation="border" variant="success" />
+                                </div>
+                            </div>
                         </div>
-                        <label>Dados do Cursista</label>
-                        <div className="row">
-                            <div className="col-md-9">
-                                <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
-                                <TextInput label="Nome completo *" id="nome"
-                                    name="nome" onChange={this.handleChange} value={this.state.nome}
-                                />
-                            </div>
-                            <div className="col-md-3">
-                                <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
-                                <TextInput label="Idade"
-                                    name="idade" onChange={this.handleChange} value={this.state.idade}
-                                />
-                            </div>
-                            <div className="col-md-4">
-                                <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
-                                <TextInput label="Telefone"
-                                    name="telefone" onChange={this.handleChange} value={this.state.telefone}
-                                />
-                            </div>
-                        </div>
-                        <label>Endereço</label>
-                        <div className="row">
-                            <div className="col-md-9">
-                                <TextInput label="Rua"
-                                    name="rua" onChange={this.handleChange} value={this.state.rua}
-                                />
-                            </div>
-                            <div className="col-md-3">
-                                <TextInput label="Nº"
-                                    name="numero" onChange={this.handleChange} value={this.state.numero}
-                                />
-                            </div>
-                            <div className="col-md-4">
-                                <TextInput label="Bairro"
-                                    name="bairro" onChange={this.handleChange} value={this.state.bairro}
-                                />
-                            </div>
-                            <div className="col-md-5">
-                                <TextInput label="Cidade"
-                                    name="cidade" onChange={this.handleChange} value={this.state.cidade}
-                                />
-                            </div>
-                            <div className="col-md-3">
-                                <Form.Label>Estado</Form.Label>
-                                <Form.Control as="select" onChange={this.returnestado}>
-                                    <option value=""></option>
-                                    {this.estados && this.estados.map(estado => (
-                                        <option key={estado.value} value={estado.value}>{estado.value}</option>
-                                    ))}
-                                </Form.Control>
-                            </div>
-                        </div>
-                        <label>Restrições do Cursista</label>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <Textarea placeholder="Restrições com comida, alergias, etc" data-length={120}
-                                    name="restricao" onChange={this.handleChange} value={this.state.restricao}
-                                />
-                            </div>
-                        </div>
-                        <label>Questionário Rápido</label>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <TextInput label="Comunidade que participa"
-                                    name="comunidade" onChange={this.handleChange} value={this.state.comunidade}
-                                />
-                            </div>
-                            <div className="col-md-12">
-                                <TextInput label="Função que exerce na comunidade"
-                                    name="funcao" onChange={this.handleChange} value={this.state.funcao}
-                                />
-                            </div>
-                            <div className="col-md-12">
-                                <TextInput label="Porque você quer participar do CDL 2019?"
-                                    name="motivo" onChange={this.handleChange} value={this.state.motivo}
-                                />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-12 text-right" style={{ 'display': !this.state.loadding ? '' : 'none' }}>
-                                <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none', 'margin-bottom': '10px' }}><small>* Verifique os campos obrigatórios</small></div>
-                                <Button onClick={this.realizarInscricao} waves="light">REALIZAR INSCRIÇÃO</Button>
-                            </div>
-                            <div className="col-lg-12 text-right" style={{ 'display': this.state.loadding ? '' : 'none' }}>
-                                <Spinner animation="border" variant="success" />
-                            </div>
-                        </div>
-                    </div>
 
+                    </div>
                 </div>
+                <Footer />
             </div>
         );
     }

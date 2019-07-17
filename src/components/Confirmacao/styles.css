@@ -1,0 +1,25 @@
+.main {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.success-retorno {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.md-icon {
+    color: #fff;
+    background: #32ba7c;
+    font-size: 8rem;
+    border-radius: 100px;
+}
+
+p {
+    color: #32ba7c;
+    font-size: 1.5rem;
+}
