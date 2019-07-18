@@ -84,8 +84,10 @@ export default class Inscricao extends Component {
             })
 
             if (inscricao.data) {
+                console.log(inscricao.data);
                 this.setState({ loadding: false });
-                this.props.history.push('/confirmacao');
+                let inscrito = inscricao.data._id;
+                this.props.history.push(`/confirmacao/${inscrito}`);
             } else {
                 this.setState({ loadding: false });
                 console.log('Erro', inscricao);
@@ -110,7 +112,7 @@ export default class Inscricao extends Component {
                             <h6>Faça sua inscrição e aguarde nosso contato.
                             <br />
                                 Boa sorte!</h6>
-                            <label for="nome" className="isMobile"><i class="material-icons md-icons">keyboard_arrow_down</i></label>
+                            <label for="nome" className="isMobile"><i className="material-icons md-icons">keyboard_arrow_down</i></label>
 
                         </div>
                         <div className="col-lg-8 col-12">
@@ -201,7 +203,7 @@ export default class Inscricao extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-lg-12 text-right" style={{ 'display': !this.state.loadding ? '' : 'none' }}>
-                                    <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none', 'margin-bottom': '10px' }}><small>* Verifique os campos obrigatórios</small></div>
+                                    <div className="alerts marginCorrection" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Verifique os campos obrigatórios</small></div>
                                     <Button onClick={this.realizarInscricao} waves="light">REALIZAR INSCRIÇÃO</Button>
                                 </div>
                                 <div className="col-lg-12 text-right" style={{ 'display': this.state.loadding ? '' : 'none' }}>

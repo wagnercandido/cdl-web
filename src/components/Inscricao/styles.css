@@ -77,6 +77,10 @@ label {
     display: none;
 }
 
+.marginCorrection {
+    margin-bottom: 10px
+}
+
 @media only screen and (max-width: 991px) {
     .md-icons {
         display: inline;
