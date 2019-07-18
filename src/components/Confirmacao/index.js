@@ -34,7 +34,7 @@ export default class Confirmacao extends Component {
                         <h1>Parabéns {this.state.inscrito && this.handleName(this.state.inscrito.nome)}!</h1>
                         <p>Sua inscrição foi concluída com sucesso!</p>
                         <br />
-                        <a onClick={() => this.props.history.push('/')}>REALIZAR NOVA INSCRIÇÃO</a>
+                        <a onClick={() => this.props.history.push('/inscricao')}>REALIZAR NOVA INSCRIÇÃO</a>
                     </div>
                 </div>
                 <Footer />
