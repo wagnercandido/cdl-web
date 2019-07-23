@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { TextInput, Checkbox, Button } from 'react-materialize';
 import M from 'materialize-css';
-import { Form, Spinner } from 'react-bootstrap';
+import { Form, Spinner, Alert } from 'react-bootstrap';
 
 import './styles.css';
 import api from '../../services/api';
@@ -33,6 +33,8 @@ export default class Inscricao extends Component {
 
         loadding: false,
         alerts: false,
+
+        credito: false,
     }
 
     componentDidMount() {
@@ -55,6 +57,9 @@ export default class Inscricao extends Component {
 
     returnpagamento = (event) => {
         this.setState({ pagamento: event.target.value })
+        setTimeout(() => {
+            this.state.pagamento.indexOf("credito") != -1 ? this.setState({credito:true}) : this.setState({credito:false});
+        }, 1000);
     }
 
     handleChange = event => {
@@ -257,7 +262,7 @@ export default class Inscricao extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-md-6">
-                                <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
+                                    <div className="alerts" style={{ 'display': this.state.alerts ? '' : 'none' }}><small>* Campo obrigatório</small></div>
                                     <Form.Label>Forma de Pagamento</Form.Label>
                                     <Form.Control as="select" onChange={this.returnpagamento}>
                                         <option value=""></option>
@@ -268,6 +273,13 @@ export default class Inscricao extends Component {
                                         <option value="dinheiro">Dinheiro</option>
                                         <option value="deposito">Depósito ou transferência bancária</option>
                                     </Form.Control>
+                                </div>
+                                <div className="col-md-6">
+                                    <Alert variant="secondary" style={{'display': this.state.credito ? '' : 'none'}}>
+                                        <label>
+                                            Você receberá um link contendo informações do pagamento.
+                                        </label>
+                                    </Alert>
                                 </div>
                             </div>
                             <div className="row">

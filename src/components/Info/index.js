@@ -33,7 +33,7 @@ export default class Info extends Component {
                                     <h3>Curso de Dinâmica para Líderes - CDL 2019</h3>
                                     <p><label><i class="material-icons">location_on</i><div className="body-label">Hospedagem: São Clemente</div></label></p>
                                     <p><label><i class="material-icons">location_on</i>Curso: Escola Técnica Redentorista</label></p>
-                                    <p><label><i class="material-icons">access_time</i>30 de Agosto de 2019 - 01 de Setembro de 2019</label></p>
+                                    <p><label><i class="material-icons">access_time</i>06 de Setembro de 2019 - 08 de Setembro de 2019</label></p>
                                 </div>
                             </div>
                         </div>

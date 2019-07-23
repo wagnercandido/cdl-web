@@ -14,7 +14,7 @@ export default class Rodape extends Component {
         return (
             <div className="footer">
                 <div className="container">
-                    <a>Admin</a>
+                    <a><label>Admin</label></a>
                     <label className="labelFooter">Desenvolvido por <a target="_blank" href='https://www.linkedin.com/in/wagner-candido-331a0212b/'>Wagner Candido</a></label>
                 </div>
             </div>
