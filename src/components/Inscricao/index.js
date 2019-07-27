@@ -128,7 +128,8 @@ export default class Inscricao extends Component {
                 comunidade: this.state.comunidade,
                 funcao: this.state.funcao,
                 motivo: this.state.motivo,
-                pagamento: this.state.pagamento
+                pagamento: this.state.pagamento,
+                confirmado: false
             })
 
             if (inscricao.data) {

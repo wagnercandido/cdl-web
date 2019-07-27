@@ -1,0 +1,53 @@
+.main {
+    display: inline-block;
+    width: 100%;
+}
+
+th, tr {
+    font-size: 14px;
+    text-align: left;
+}
+
+.td-center {
+    text-align: center;
+}
+
+.td-inscrito {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.card-page {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.line-spinner {
+    padding-top: 150px;
+    height: 70% !important;
+}
+
+.material-icons {
+    padding: 5px;
+    border-radius: 3px;
+    color: white;
+}
+
+.material-icons.inscritos {
+    background: rgb(70, 127, 207);
+}
+
+.material-icons.confirmados {
+    background: rgb(94, 186, 0);
+}
+
+.body-overflow {
+    overflow: auto;
+    max-height: 5000px;
+}
+
+label {
+    margin-bottom: 0px !important;
+}

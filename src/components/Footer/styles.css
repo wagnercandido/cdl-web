@@ -29,6 +29,10 @@ a label {
     margin-bottom: 0px !important;
 }
 
+label {
+    margin-bottom: 0px !important;
+}
+
 .labelFooter {
     margin: 0 !important;
 }
