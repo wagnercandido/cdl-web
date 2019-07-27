@@ -62,3 +62,14 @@ label {
 .classForm {
     text-align: center;
 }
+
+.voltar {
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #26a69a
+}
+
+.voltar:hover {
+    color: #000 !important;
+}

@@ -56,7 +56,7 @@ export default class Login extends Component {
             <div id="main-container">
                 <div className="classForm">
                     <h3>
-                        <label><img src={Logo} /></label>
+                        <label onClick={() => this.props.history.push('/')} ><img src={Logo} /></label>
                     </h3>
                     <TextInput label="usuário" id="usuario"
                         name="usuario" onChange={this.handleChange} value={this.state.usuario}
@@ -66,6 +66,7 @@ export default class Login extends Component {
                     />
                     <small className="error">{this.state.error}</small>
                     <Button className="btnEntrar" onClick={this.efetuarLogin}>Entrar</Button>
+                    <label className="voltar" onClick={() => this.props.history.push('/')} >Voltar</label>
 
                 </div>
             </div>
