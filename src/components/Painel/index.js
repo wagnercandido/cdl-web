@@ -23,6 +23,7 @@ export default class Painel extends Component {
     componentDidMount = () => {
         M.AutoInit();
         this.getInscritos();
+        // this.verifyLocalStorage();
     }
 
     componentWillMount = async () => {
@@ -71,7 +72,7 @@ export default class Painel extends Component {
                             </div>
                             <div className="col-md-3">
                                 <div className="row card-page">
-                                    <div className="col-2"><i class="material-icons inscritos">people_outline</i></div>
+                                    <div className="col-2"><i className="material-icons inscritos">people_outline</i></div>
                                     <div className="col-10 text-left label-card"><strong>{this.state.inscritos && this.state.inscritos.length}</strong> <label>Inscritos</label> </div>
                                 </div>
                                 <div></div>
@@ -79,7 +80,7 @@ export default class Painel extends Component {
                             </div>
                             <div className="col-md-3">
                                 <div className="row card-page">
-                                    <div className="col-2"><i class="material-icons confirmados">people_outline</i></div>
+                                    <div className="col-2"><i className="material-icons confirmados">people_outline</i></div>
                                     <div className="col-10 text-left"><strong>{this.state.confirmados && this.state.confirmados.length}</strong> <label>Confirmados</label> </div>
                                 </div>
                             </div>
@@ -114,7 +115,7 @@ export default class Painel extends Component {
                                                     <td>{inscrito.email}</td>
                                                     <td className="td-center">{inscrito.pagamento}</td>
                                                     <td className="td-center">
-                                                        <Checkbox checked={inscrito.confirmado} onChange={() => this.confirmaPagamento(inscrito)} />
+                                                        <Checkbox value='' label='' checked={inscrito.confirmado} onChange={() => this.confirmaPagamento(inscrito)} />
                                                     </td>
                                                 </tr>
                                             )
