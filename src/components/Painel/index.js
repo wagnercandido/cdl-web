@@ -34,7 +34,6 @@ export default class Painel extends Component {
             })
         }).then(() => {
             this.setState({ confirmados: listatemp });
-            console.log('inscritos willmount', this.state);
         })
     }
 
@@ -48,7 +47,6 @@ export default class Painel extends Component {
             this.setState({ inscritos: inscricoes.data });
         }).then(() => {
             this.setState({ spinner: false, confirmados: listatemp });
-            console.log('inscritos', this.state);
         })
     }
 
