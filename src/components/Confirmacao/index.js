@@ -15,6 +15,7 @@ class PagamentoComponent extends Component {
                 <label>Operação:</label> <label>013</label><br />
                 <label>Conta Poupança:</label> <label>411045-0</label><br />
                 <label>Titular:</label> <label>MARIA DO SOCORRO M DE LIMA</label>
+                <h6>Enviar comprovante para (83) 9 9965-1959 | (83) 9 9917-7202</h6>
             </div>
         );
     }
@@ -31,9 +32,6 @@ export default class Confirmacao extends Component {
         const response = await api.get(`inscrito/${inscricao}`)
         inscricao = response.data;
         this.setState({ inscrito: inscricao });
-        console.log('====================================');
-        console.log(inscricao);
-        console.log('====================================');
     }
 
     handleName = (nome) => {
@@ -55,7 +53,6 @@ export default class Confirmacao extends Component {
                         <div style={{ 'display': this.state.inscrito.pagamento === 'deposito' ? '' : 'none' }}>
                             <PagamentoComponent pagamento={this.state.inscrito.pagamento} />
                         </div>
-                        <br />
                         <br />
                         <a onClick={() => this.props.history.push('/inscricao')}>REALIZAR NOVA INSCRIÇÃO</a>
                     </div>

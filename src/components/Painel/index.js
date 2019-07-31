@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 import { distanceInWords } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import XLSX from 'xlsx';
+import saveAs from 'file-saver';
 
 import './styles.css';
 import { Checkbox, Table, Preloader, Modal } from 'react-materialize';
 import M from 'materialize-css';
-import { ModalBody } from 'react-bootstrap';
+import { ModalBody, Button } from 'react-bootstrap';
+
+import Transferir from '../../assets/transferir-icon.png';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -68,7 +72,22 @@ export default class Painel extends Component {
         this.setState({ show: false, inscritoModal: '' })
     }
 
+    exportTable = () => {
+        let tb = XLSX.utils.table_to_book(document.getElementById('table'), { sheet: "Inscritos" });
+        let tbout = XLSX.write(tb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+
+        saveAs(new Blob([this.s2ab(tbout)], { type: "application/octet-stream" }), 'Inscritos.xlsx');
+    }
+
+    s2ab = (s) => {
+        let buf = new ArrayBuffer(s.length);
+        let view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0Xff;
+        return buf;
+    }
+
     render() {
+
         return (
             <div className="main-container">
                 <Header />
@@ -83,14 +102,20 @@ export default class Painel extends Component {
                                     <div className="col-2"><i className="material-icons inscritos">people_outline</i></div>
                                     <div className="col-10 text-left label-card"><strong>{this.state.inscritos && this.state.inscritos.length}</strong> <label>Inscritos</label> </div>
                                 </div>
-                                <div></div>
-                                <div></div>
                             </div>
                             <div className="col-md-3">
                                 <div className="row card-page">
                                     <div className="col-2"><i className="material-icons confirmados">people_outline</i></div>
                                     <div className="col-10 text-left"><strong>{this.state.confirmados && this.state.confirmados.length}</strong> <label>Confirmados</label> </div>
                                 </div>
+                            </div>
+                            <div className="col-md-3">
+                                <a onClick={() => { this.exportTable() }}>
+                                    <div className="row card-page card-transferir">
+                                        <div className="col-4"><img className="icon-transferir" src={Transferir} /></div>
+                                        <div className="col-8 text-left">Exportar</div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div className="row body-overflow">
@@ -100,7 +125,7 @@ export default class Painel extends Component {
                                         <Preloader size="big" />
                                     </div>
                                 </div>
-                                <Table style={{ 'display': !this.state.spinner ? '' : 'none' }}>
+                                <Table id="table" style={{ 'display': !this.state.spinner ? '' : 'none' }}>
                                     <thead>
                                         <tr>
                                             <th data-field="id">Nome</th>
