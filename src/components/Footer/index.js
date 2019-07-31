@@ -14,7 +14,7 @@ export default class Rodape extends Component {
     }
 
     redirectToLogin = () => {
-        // this.props.history.push('/entrar'); //Não está funcionando
+        // this.props.history.push('/painel'); //Não está funcionando
         window.open(window.location.href + 'entrar');
     }
 

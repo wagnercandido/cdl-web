@@ -50,7 +50,7 @@ export default class Info extends Component {
                                     <ul>
                                         <li>
                                             <label>
-                                                Necessário: Matrial de higiene pessoal, roupa de cama, pertences pessoais, ventilador (responsabilidade do cursista).
+                                                Necessário: Material de higiene pessoal, roupa de cama, pertences pessoais, ventilador (responsabilidade do cursista).
                                             </label>
                                         </li>
                                         <li>
@@ -65,6 +65,9 @@ export default class Info extends Component {
                                             </label>
                                             <label>
                                                 O pagamento da inscrição pode ser em dinheiro, cartão de crédito em até 3x ou via transferência ou depósito.
+                                            </label>
+                                            <label>
+                                                <strong>Inscrições pelo cartão de crédito, só estarão disponíveis até o dia 28/08/2019.</strong>
                                             </label>
                                         </li>
                                     </ul>

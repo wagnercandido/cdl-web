@@ -271,7 +271,7 @@ export default class Inscricao extends Component {
                                         <option value="credito">Cartão de Crédito - direto</option>
                                         <option value="credito2x">Cartão de Crédito - 2x</option>
                                         <option value="credito3x">Cartão de Crédito - 3x</option>
-                                        <option value="dinheiro">Dinheiro</option>
+                                        {/* <option value="dinheiro">Dinheiro</option> */}
                                         <option value="deposito">Depósito ou transferência bancária</option>
                                     </Form.Control>
                                 </div>

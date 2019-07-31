@@ -16,6 +16,7 @@ th, tr {
     display: flex;
     flex-direction: column;
     padding-left: 15px;
+    cursor: pointer;
 }
 
 .card-page {
@@ -50,4 +51,12 @@ th, tr {
 
 label {
     margin-bottom: 0px !important;
+}
+
+.modal-footer {
+    display: none !important;
+}
+
+.close-modal {
+    margin-bottom: 20px;
 }

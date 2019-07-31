@@ -35,7 +35,7 @@ export default class Header extends Component {
         return (
             <Navbar className="nav-header" brand={<a><img src={Logo} /></a>} alignLinks="right" sidenav={<li />}>
                 <NavItem href="">{this.state.usuario}</NavItem>
-                <NavItem href="" title="Sair" onClick={this.sair}><i class="material-icons">power_settings_new</i></NavItem>
+                <NavItem href="" title="Sair" onClick={this.sair}><i className="material-icons">power_settings_new</i></NavItem>
             </Navbar>
         );
     }
